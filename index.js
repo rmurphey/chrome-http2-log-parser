@@ -23,10 +23,4 @@ function doIt (file, opts, cb) {
   });
 };
 
-doIt(path.resolve(__dirname, './test/fixtures/session.txt'), {
-  reporters: [ 'textCompact' ]
-}, function (err, data) {
-  console.log(data.reports.textCompact);
-});
-
 module.exports = doIt;
