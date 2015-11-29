@@ -3,6 +3,9 @@
   "version": "0.0.2",
   "description": "Parse Chrome's http/2 net-internals logs",
   "main": "index.js",
+  "engines": {
+    "node": ">=4.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
