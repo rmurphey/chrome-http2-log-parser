@@ -11,8 +11,8 @@ npm install chrome-http2-log-parser
 
 ## Usage
 
-Given a file `session.txt` that contains the output of the Chrome 
-HTTP/2 net-internals log, and given that it is a sibling of the file 
+Given a file `session.txt` that contains the output of the Chrome
+HTTP/2 net-internals log, and given that it is a sibling of the file
 `report.js` that contains the following code:
 
 ```js
@@ -41,10 +41,10 @@ parser(path.resolve(__dirname, './session.txt'), {
   console.log(data.streams);
 
   // the output of the text reporter
-  console.log(data.reporters.text);
+  console.log(data.reports.text);
 
   // the output of the textCompact reporter
-  console.log(data.reporters.textCompact);
+  console.log(data.reports.textCompact);
 });
 ```
 
