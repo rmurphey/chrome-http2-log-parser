@@ -1,0 +1,25 @@
+{
+  "name": "chrome-http2-log-parser",
+  "version": "0.0.1",
+  "description": "Parse Chrome's http/2 net-internals logs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chrome",
+    "http2",
+    "http/2",
+    "net-internals"
+  ],
+  "author": "Rebecca Murphey",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rmurphey/chrome-http2-log-parser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rmurphey/chrome-http2-log-parser/issues"
+  },
+  "homepage": "https://github.com/rmurphey/chrome-http2-log-parser"
+}
