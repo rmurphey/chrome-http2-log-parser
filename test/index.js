@@ -4,8 +4,9 @@ var parser = require('../index');
 
 parser(path.resolve(__dirname, './fixtures/session.txt'), {
   reporters: [
+    'html'
     // 'text',
-    'textCompact'
+    // 'textCompact'
   ],
   // the resolution, in milliseconds, of the report
   interval: 5
@@ -26,5 +27,5 @@ parser(path.resolve(__dirname, './fixtures/session.txt'), {
   // console.log(data.reporters.text);
 
   // the output of the textCompact reporter
-  console.log(data.reports.textCompact);
+  console.log(data.reports.html);
 });

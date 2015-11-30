@@ -30,9 +30,7 @@ module.exports = function (dataByTime, compact) {
       txt.push(`STREAM ${streamId}: ${stream.path}`);
     }
 
-    let streamEvents = stream.events.slice(1);
-
-    let events = streamEvents.map((item) => {
+    let events = stream.events.map((item) => {
       if (!item) {
         return ' ';
       }

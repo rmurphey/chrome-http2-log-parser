@@ -1,7 +1,6 @@
 'use strict';
 
 var fs = require('fs');
-var path = require('path');
 
 var parse = require('./lib/parse');
 var dataByTime = require('./lib/dataByTime');

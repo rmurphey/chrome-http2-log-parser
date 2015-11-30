@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/rmurphey/chrome-http2-log-parser/issues"
   },
-  "homepage": "https://github.com/rmurphey/chrome-http2-log-parser"
+  "homepage": "https://github.com/rmurphey/chrome-http2-log-parser",
+  "dependencies": {
+    "jade": "^1.11.0"
+  }
 }

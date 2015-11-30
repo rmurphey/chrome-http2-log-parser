@@ -1,0 +1,77 @@
+doctype html
+html
+  head
+    style.
+      body {
+        font-family: monospace;
+      }
+
+      table th, table td {
+        text-align: left;
+        padding: 2px;
+      }
+      
+      td.frame {
+        //- width: 1em;
+        text-align: center;
+      }
+      
+      td.frame div {
+        display: none;
+      }
+      
+      td.frame:hover div {
+        display: block;
+      }
+      
+      tr {
+        border-bottom: 1px solid #ccc;
+      }
+
+      .HTTP2_SESSION_SEND_HEADERS {
+        background-color: cadetblue;
+      }
+
+      .HTTP2_SESSION_RECV_HEADERS {
+        background-color: aqua;
+      }
+
+      .HTTP2_SESSION_RECV_DATA {
+        background-color: gold;
+      }
+
+      .HTTP2_SESSION_RECV_PUSH_PROMISE {
+        background-color: rebeccapurple;
+        color: white;
+      }
+
+      .HTTP2_STREAM_ADOPTED_PUSH_STREAM {
+        background-color: magenta;
+      }
+
+      .OTHER {
+        background-color: darkgray;
+      }
+  body
+    table
+      thead
+        tr
+          th Stream ID
+          th Path
+          - var n = 0
+          while n < data.entries
+            th= n++
+      tbody
+        each stream, streamId in data.streams
+          tr
+            td= streamId
+            td= stream.path
+            each event in stream.events
+              if event !== null
+                td.frame(class=event.e)= markers[event.e] || markers.OTHER
+                  span= event.st
+                  div
+                    pre 
+                      code= JSON.stringify(event, null, 2)
+              else
+                td.frame

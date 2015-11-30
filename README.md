@@ -124,3 +124,4 @@ Example output:
 ## TODO
 
 - HTML reporter
+- Ability to run `chrome-http2-log-parser --file=<filename> --reporter=text --interval=5`
