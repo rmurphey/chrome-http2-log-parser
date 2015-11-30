@@ -52,6 +52,8 @@ Run `node report` to see the data parsed from the log.
 
 Generates an HTML table representing the parsed log data.
 
+Screenshot: ![image](https://cloud.githubusercontent.com/assets/39191/11483285/750a4ab0-975c-11e5-99ff-94820d8b5876.png)
+
 ## TODO
 
 - Ability to run `chrome-http2-log-parser --file=<filename> --reporter=html --interval=5`
