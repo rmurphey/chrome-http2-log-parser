@@ -1,6 +1,6 @@
 {
   "name": "chrome-http2-log-parser",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Parse Chrome's http/2 net-internals logs",
   "main": "index.js",
   "engines": {
