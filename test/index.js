@@ -9,7 +9,7 @@ parser(path.resolve(__dirname, './fixtures/session.txt'), {
     // 'textCompact'
   ],
   // the resolution, in milliseconds, of the report
-  interval: 5
+  interval: 20
 }, function (err, data) {
   if (err) {
     throw err;

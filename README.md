@@ -22,11 +22,10 @@ var parser = require('chrome-http2-log-parser');
 
 parser(path.resolve(__dirname, './session.txt'), {
   reporters: [
-    'text',
-    'textCompact'
+    'html'
   ],
   // the resolution, in milliseconds, of the report
-  interval: 5
+  interval: 20
 }, function (err, data) {
   if (err) {
     throw err;
@@ -40,11 +39,8 @@ parser(path.resolve(__dirname, './session.txt'), {
   // in the order in which they appeared in the log
   console.log(data.streams);
 
-  // the output of the text reporter
-  console.log(data.reports.text);
-
-  // the output of the textCompact reporter
-  console.log(data.reports.textCompact);
+  // the output of the html reporter
+  console.log(data.reports.html);
 });
 ```
 
@@ -52,76 +48,10 @@ Run `node report` to see the data parsed from the log.
 
 ## Reporters
 
-### text
+### html
 
-Generates a text table showing the beginning of each record for
-each stream; includes the path for each stream, as well as a key.
-
-Example output:
-
-```
-===
-S: HTTP2_SESSION_SEND_HEADERS
-R: HTTP2_SESSION_RECV_HEADERS
-D: HTTP2_SESSION_RECV_DATA
-P: HTTP2_SESSION_RECV_PUSH_PROMISE
-A: HTTP2_STREAM_ADOPTED_PUSH_STREAM
-*: OTHER
-===
-INTERVAL: 5ms
-===
-STREAM 0:
-             *
-STREAM 1: /index-separate.html?push=/common/libs/combined.js
-S            R                     D         D
-STREAM 2: /common/libs/combined.js
-             PDR       DDDD       DDDDDD   DDDDDD                                  A
-STREAM 3: /common/libs/jquery.min.js?z=0
-                                      S          DRDDDDDDDDDDDD
-STREAM 5: /common/libs/jquery.min.js?z=1
-                                        S             R  DDDDDDDDDD                              DDDD          D
-STREAM 7: /common/libs/jquery.min.js?z=2
-                                        S               R     DDDDDDDD                           DDD           D
-STREAM 9: /common/libs/jquery.min.js?z=3
-                                        S               R        DDDDDDDD                        DDD           D
-STREAM 11: /common/libs/jquery.min.js?z=4
-                                        S                R         DDDDDD  DD                    DDD           D
-STREAM 13: /common/libs/jquery.min.js?z=5
-                                        S                R                  DDDDDDDD              DDDD         D
-STREAM 15: /common/libs/jquery.min.js?z=6
-                                        S                R                     DDDDDDDD            DDD         D
-STREAM 17: /common/libs/jquery.min.js?z=7
-                                        S                R                       DDDDDDDD          DDD         D
-STREAM 19: /common/libs/jquery.min.js?z=8
-                                        S                R                         DDDDD       DDDDDDDD        D
-STREAM 21: /common/libs/jquery.min.js?z=9
-                                        S                R                                     DDDDDDDDDDDDDD  DD
-```
-
-### textCompact
-
-Generates a compact text table showing the beginning of each record for
-each stream.
-
-Example output:
-
-```
-0:	             *
-1:	S            R                     D         D
-2:	             PDR       DDDD       DDDDDD   DDDDDD                                  A
-3:	                                      S          DRDDDDDDDDDDDD
-5:	                                        S             R  DDDDDDDDDD                              DDDD          D
-7:	                                        S               R     DDDDDDDD                           DDD           D
-9:	                                        S               R        DDDDDDDD                        DDD           D
-11:	                                        S                R         DDDDDD  DD                    DDD           D
-13:	                                        S                R                  DDDDDDDD              DDDD         D
-15:	                                        S                R                     DDDDDDDD            DDD         D
-17:	                                        S                R                       DDDDDDDD          DDD         D
-19:	                                        S                R                         DDDDD       DDDDDDDD        D
-21:	                                        S                R                                     DDDDDDDDDDDDDD  DD
-```
+Generates an HTML table representing the parsed log data.
 
 ## TODO
 
-- HTML reporter
-- Ability to run `chrome-http2-log-parser --file=<filename> --reporter=text --interval=5`
+- Ability to run `chrome-http2-log-parser --file=<filename> --reporter=html --interval=5`

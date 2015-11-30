@@ -10,20 +10,21 @@ html
         text-align: left;
         padding: 2px;
       }
-      
+
+      th.frame,
       td.frame {
         //- width: 1em;
         text-align: center;
       }
-      
+
       td.frame div {
         display: none;
       }
-      
+
       td.frame:hover div {
         display: block;
       }
-      
+
       tr {
         border-bottom: 1px solid #ccc;
       }
@@ -52,7 +53,15 @@ html
       .OTHER {
         background-color: darkgray;
       }
+      
   body
+    table
+      tbody
+      each m, hdr in markers
+        tr
+          th(class=hdr)= m
+          td= hdr
+
     table
       thead
         tr
@@ -60,18 +69,13 @@ html
           th Path
           - var n = 0
           while n < data.entries
-            th= n++
+            th.frame= data.interval * n++
       tbody
         each stream, streamId in data.streams
           tr
             td= streamId
             td= stream.path
-            each event in stream.events
-              if event !== null
-                td.frame(class=event.e)= markers[event.e] || markers.OTHER
-                  span= event.st
-                  div
-                    pre 
-                      code= JSON.stringify(event, null, 2)
-              else
-                td.frame
+            each events, time in stream.events
+              td.frame
+                each evt in events
+                  span(class=evt.e)= markers[evt.e] || markers.OTHER
