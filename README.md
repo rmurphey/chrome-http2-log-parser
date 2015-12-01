@@ -9,6 +9,12 @@ net-internals and turning it into something more useful.
 npm install chrome-http2-log-parser
 ```
 
+### Try it
+
+```sh
+node test
+```
+
 ## Usage
 
 Given a file `session.txt` that contains the output of the Chrome
