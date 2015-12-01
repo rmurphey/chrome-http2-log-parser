@@ -9,6 +9,10 @@ function doIt (file, opts, cb) {
   opts = opts || {};
 
   parse(file, (err, data) => {
+    if (err) {
+      return cb(err);
+    }
+
     if (opts.reporters) {
       let d = dataByTime(data.streams, opts.interval || 5);
       data.reports = {};
