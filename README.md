@@ -17,7 +17,7 @@ node test
 
 ## Usage
 
-Given a file `session.txt` that contains the output of the Chrome
+Given a file `session.txt` gathered from `chrome://net-internals/#export` that contains the output of the Chrome
 HTTP/2 net-internals log, and given that it is a sibling of the file
 `report.js` that contains the following code:
 
