@@ -3,6 +3,7 @@
   "version": "0.1.2",
   "description": "Parse Chrome's http/2 net-internals logs",
   "main": "index.js",
+  "bin": "cli.js",
   "engines": {
     "node": ">=4.2"
   },
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/rmurphey/chrome-http2-log-parser",
   "dependencies": {
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "meow": "^3.7.0"
   }
 }
