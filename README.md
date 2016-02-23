@@ -15,7 +15,26 @@ npm install chrome-http2-log-parser
 node test
 ```
 
-## Usage
+
+## CLI
+
+```sh
+$ chrome-http2-log-parser --help
+  
+  Usage
+    $ chrome-http2-log-parser
+
+  Options
+    -f, --file  file path containing the output of Chrome HTTP/2 net-internals log
+    --reporter  html, generate a html table representing the parsed log data
+    --interval  the resolution in milliseconds of the report
+
+  Examples
+    $ chrome-http2-log-parser --file=./test/fixtures/session.txt --reporter=html --interval=5
+
+```
+
+## API Usage
 
 Given a file `session.txt` gathered from `chrome://net-internals/#export` that contains the output of the Chrome
 HTTP/2 net-internals log, and given that it is a sibling of the file
@@ -60,6 +79,3 @@ Generates an HTML table representing the parsed log data.
 
 Screenshot: ![image](https://cloud.githubusercontent.com/assets/39191/11483285/750a4ab0-975c-11e5-99ff-94820d8b5876.png)
 
-## TODO
-
-- Ability to run `chrome-http2-log-parser --file=<filename> --reporter=html --interval=5`
